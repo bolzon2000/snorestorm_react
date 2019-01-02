@@ -4,20 +4,42 @@ import { Actions } from 'react-native-router-flux';
 
 export default class FooterNavButton extends Component<{}> {
 
-  _onNextButtonPressed = () => {
-    this._handleResponse();
+  constructor(props) {
+    super(props);
+    this._onNextButtonPressed  = this._onNextButtonPressed.bind(this);
   }
 
-  _handleResponse = () => {
+  _onNextButtonPressed = (location) => {
+    console.log ('some location' + location);
+    this._handleResponse(location);
+  }
+
+  _handleResponse = (location) => {
     //for now just initialRoute
-    Actions.lightning();
+    switch (location) {
+      case 'Lightning' :
+        Actions.lightning();
+        break;
+      case 'Thunder' :
+        Actions.thunder();
+        break;
+      case 'Sensitivity' :
+        Actions.sensitivity();
+        break;
+      case 'Main' :
+        Actions.main();
+        break;
+      default :
+        Actions.introduction();
+    }
+
   }
 
   render() {
     return (
       <View>
         <TouchableOpacity style={style.button}>
-          <Text style={style.buttonText} onPress={this._onNextButtonPressed}> Next </Text>
+          <Text style={style.buttonText} onPress={() => this._onNextButtonPressed (this.props.navigateTo)}> Next </Text>
         </TouchableOpacity>
       </View>
     );
