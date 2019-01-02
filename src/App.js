@@ -1,13 +1,13 @@
 
 import React, {Component} from 'react';
-import Router from './Router'
+import Router from './Router';
 
-type Props = {};
-
-export default class App extends Component<Props> {
+class App extends Component {
   render() {
     return (
       <Router />
     );
   }
 };
+
+export default App;

@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import { RadioButton } from 'react-native-flexi-radio-button';
 
+var gs = require ('../../src/Resources/g_style');
 
-const ConfigurationStep = () => {
-  return (
-    <View>
-      <Text>some text</Text>
-    </View>
-  );
+class ConfigurationStep extends Component {
+
+  render () {
+    return (
+      <RadioButton value={'item1'}>
+        <Text>some text</Text>
+      </RadioButton>
+    );
+  }
 };
+
 
 export default ConfigurationStep;

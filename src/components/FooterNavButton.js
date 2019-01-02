@@ -32,7 +32,6 @@ export default class FooterNavButton extends Component<{}> {
       default :
         Actions.introduction();
     }
-
   }
 
   render() {

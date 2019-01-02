@@ -14,38 +14,36 @@ import { RadioButton } from 'react-native-flexi-radio-button';
 var gs = require ('../src/Resources/g_style');
 
 //create a component
- class Lightning extends Component {
+ class Thunder extends Component {
 
    render() {
      return (
        <MasterLayout>
          <PageSection>
-           <Text style={gs.heading}>Lightning</Text>
-           <Text style={gs.bodystandard}>Its just the flash, but hey, it works!</Text>
+           <Text style={gs.heading}>Thunder</Text>
+           <Text style={gs.bodystandard}>How loud should the thunder be during this snorestorm? Decide below!</Text>
          </PageSection>
          <PageSection>
           <ConfigurationBlock>
             <RadioButton value={'item1'}>
               <View style={{alignItems:'flex-start', marginLeft:10, marginRight:20}}>
-                <Text style={[gs.bodystandard, {textAlign: 'left'}]}>Gentle</Text>
-                <Text style={[gs.bodysmall, {textAlign: 'left'}]}>This is not a bad setting to start off with,
-                  just a single flash.
+                <Text style={[gs.bodystandard, {textAlign: 'left'}]}>Gentle Storm</Text>
+                <Text style={[gs.bodysmall, {textAlign: 'left'}]}>You are a light sleeper, too much thunder and your sleep might be
+                  disturbed. A good place to start.
                 </Text>
               </View>
             </RadioButton>
             <RadioButton value={'item2'}>
               <View style={{alignItems:'flex-start', marginLeft:10, marginRight:20}}>
-                <Text style={[gs.bodystandard, {textAlign: 'left'}]}>Kinda Flashy</Text>
-                <Text style={[gs.bodysmall, {textAlign: 'left'}]}>Couple of flashes, usually fine for light to
-                  moderate sleepers.
+                <Text style={[gs.bodystandard, {textAlign: 'left'}]}>Heavy Storm</Text>
+                <Text style={[gs.bodysmall, {textAlign: 'left'}]}>Good setting for people that are light to moderate sleepers.
                 </Text>
               </View>
             </RadioButton>
             <RadioButton value={'item3'}>
               <View style={{alignItems:'flex-start', marginLeft:10, marginRight:20}}>
-                <Text style={[gs.bodystandard, {textAlign: 'left'}]}>Night Club</Text>
-                <Text style={[gs.bodysmall, {textAlign: 'left'}]}>If youre sleeping with a partner, this setting
-                  might get you into trouble. Youve been warned!
+                <Text style={[gs.bodystandard, {textAlign: 'left'}]}>Hurricane</Text>
+                <Text style={[gs.bodysmall, {textAlign: 'left'}]}>You sleep like the dead. The right setting for heavy sleepers.
                 </Text>
               </View>
             </RadioButton>
@@ -53,7 +51,7 @@ var gs = require ('../src/Resources/g_style');
          </PageSection>
          <PageSection>
            <FooterNav>
-             <FooterNavButton navigateTo={'Thunder'} />
+             <FooterNavButton navigateTo={'Sensitivity'} />
            </FooterNav>
          </PageSection>
        </MasterLayout>
@@ -61,4 +59,4 @@ var gs = require ('../src/Resources/g_style');
    }
  };
 
- export default Lightning;
+ export default Thunder;

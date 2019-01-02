@@ -11,7 +11,7 @@ const PageSection = (props) => {
 
 const style = {
   containerStyle: {
-    flexWrap: 'wrap',
+    
     alignContent: 'flex-start',
     margin: 20,
   }

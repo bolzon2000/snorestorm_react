@@ -14,38 +14,38 @@ import { RadioButton } from 'react-native-flexi-radio-button';
 var gs = require ('../src/Resources/g_style');
 
 //create a component
- class Lightning extends Component {
+ class Sensitivity extends Component {
 
    render() {
      return (
        <MasterLayout>
          <PageSection>
-           <Text style={gs.heading}>Lightning</Text>
-           <Text style={gs.bodystandard}>Its just the flash, but hey, it works!</Text>
+           <Text style={gs.heading}>Sensitivity</Text>
+           <Text style={gs.bodystandard}>How loud should your snoring be before lightning flashes and thunder crashes?</Text>
          </PageSection>
          <PageSection>
           <ConfigurationBlock>
             <RadioButton value={'item1'}>
               <View style={{alignItems:'flex-start', marginLeft:10, marginRight:20}}>
-                <Text style={[gs.bodystandard, {textAlign: 'left'}]}>Gentle</Text>
-                <Text style={[gs.bodysmall, {textAlign: 'left'}]}>This is not a bad setting to start off with,
-                  just a single flash.
+                <Text style={[gs.bodystandard, {textAlign: 'left'}]}>Quiet</Text>
+                <Text style={[gs.bodysmall, {textAlign: 'left'}]}>The slightest snore will set things in motion. Not good for environments with
+                  a lot of background noise.
                 </Text>
               </View>
             </RadioButton>
             <RadioButton value={'item2'}>
               <View style={{alignItems:'flex-start', marginLeft:10, marginRight:20}}>
-                <Text style={[gs.bodystandard, {textAlign: 'left'}]}>Kinda Flashy</Text>
-                <Text style={[gs.bodysmall, {textAlign: 'left'}]}>Couple of flashes, usually fine for light to
-                  moderate sleepers.
+                <Text style={[gs.bodystandard, {textAlign: 'left'}]}>Buzz Saw</Text>
+                <Text style={[gs.bodysmall, {textAlign: 'left'}]}>A setting for people with a relatively loud snore. A good setting for most people
+                  with snoring issues.
                 </Text>
               </View>
             </RadioButton>
             <RadioButton value={'item3'}>
               <View style={{alignItems:'flex-start', marginLeft:10, marginRight:20}}>
-                <Text style={[gs.bodystandard, {textAlign: 'left'}]}>Night Club</Text>
-                <Text style={[gs.bodysmall, {textAlign: 'left'}]}>If youre sleeping with a partner, this setting
-                  might get you into trouble. Youve been warned!
+                <Text style={[gs.bodystandard, {textAlign: 'left'}]}>Jet Aircraft</Text>
+                <Text style={[gs.bodysmall, {textAlign: 'left'}]}>Your snoring is a force of nature. Your snoring makes
+                  water buffalo jealous.
                 </Text>
               </View>
             </RadioButton>
@@ -53,7 +53,7 @@ var gs = require ('../src/Resources/g_style');
          </PageSection>
          <PageSection>
            <FooterNav>
-             <FooterNavButton navigateTo={'Thunder'} />
+             <FooterNavButton navigateTo={'Main'} />
            </FooterNav>
          </PageSection>
        </MasterLayout>
@@ -61,4 +61,4 @@ var gs = require ('../src/Resources/g_style');
    }
  };
 
- export default Lightning;
+ export default Sensitivity;
