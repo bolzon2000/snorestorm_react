@@ -9,6 +9,7 @@ import FooterNav from '../src/components/FooterNav';
 import FooterNavButton from '../src/components/FooterNavButton';
 import ConfigurationBlock from '../src/components/ConfigurationBlock';
 import { RadioButton } from 'react-native-flexi-radio-button';
+import { Icon } from 'react-native-elements';
 
 // get global stylesheet
 var gs = require ('../src/Resources/g_style');
@@ -20,8 +21,9 @@ var gs = require ('../src/Resources/g_style');
      return (
        <MasterLayout>
          <PageSection>
+           <Icon name='flash' type='entypo' color='#ffffff' size={40} />
            <Text style={gs.heading}>Lightning</Text>
-           <Text style={gs.bodystandard}>Its just the flash, but hey, it works!</Text>
+           <Text style={gs.bodystandard}>Its just the flash, but hey, it works! If you see flashing all night...the setting is probably too high. </Text>
          </PageSection>
          <PageSection>
           <ConfigurationBlock>
@@ -53,7 +55,7 @@ var gs = require ('../src/Resources/g_style');
          </PageSection>
          <PageSection>
            <FooterNav>
-             <FooterNavButton navigateTo={'Thunder'} />
+             <FooterNavButton navigateTo={'Thunder'} killbutton={this.props.killbutton}/>
            </FooterNav>
          </PageSection>
        </MasterLayout>

@@ -7,6 +7,7 @@ export default class FooterNavButton extends Component<{}> {
   constructor(props) {
     super(props);
     this._onNextButtonPressed  = this._onNextButtonPressed.bind(this);
+    console.log('killbutton=' + this.props.killbutton);
   }
 
   _onNextButtonPressed = (location) => {
@@ -34,16 +35,30 @@ export default class FooterNavButton extends Component<{}> {
     }
   }
 
-  render() {
-    return (
-      <View>
+  buttonView() {
+    if (this.props.killbutton) {
+      return null;
+    } else {
+      return (
         <TouchableOpacity style={style.button}>
           <Text style={style.buttonText} onPress={() => this._onNextButtonPressed (this.props.navigateTo)}> Next </Text>
         </TouchableOpacity>
+      );
+    }
+  };
+
+  render() {
+    return (
+      <View>
+        {this.buttonView()}
       </View>
     );
-  }
+
+
+  };
+
 };
+
 
 const style = {
   button: {

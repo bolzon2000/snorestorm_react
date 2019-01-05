@@ -9,6 +9,7 @@ import FooterNav from '../src/components/FooterNav';
 import FooterNavButton from '../src/components/FooterNavButton';
 import ConfigurationBlock from '../src/components/ConfigurationBlock';
 import { RadioButton } from 'react-native-flexi-radio-button';
+import { Icon } from 'react-native-elements';
 
 // get global stylesheet
 var gs = require ('../src/Resources/g_style');
@@ -20,8 +21,9 @@ var gs = require ('../src/Resources/g_style');
      return (
        <MasterLayout>
          <PageSection>
+           <Icon name='gauge' type='entypo' color='#ffffff' size={40} />
            <Text style={gs.heading}>Sensitivity</Text>
-           <Text style={gs.bodystandard}>How loud should your snoring be before lightning flashes and thunder crashes?</Text>
+           <Text style={gs.bodystandard}>How loud should your snoring be before lightning flashes and thunder crashes? This setting triggers the storm based on the volume of your snoring.</Text>
          </PageSection>
          <PageSection>
           <ConfigurationBlock>
@@ -53,7 +55,7 @@ var gs = require ('../src/Resources/g_style');
          </PageSection>
          <PageSection>
            <FooterNav>
-             <FooterNavButton navigateTo={'Main'} />
+             <FooterNavButton navigateTo={'Main'} killbutton={this.props.killbutton} />
            </FooterNav>
          </PageSection>
        </MasterLayout>

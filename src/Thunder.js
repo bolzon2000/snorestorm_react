@@ -9,6 +9,7 @@ import FooterNav from '../src/components/FooterNav';
 import FooterNavButton from '../src/components/FooterNavButton';
 import ConfigurationBlock from '../src/components/ConfigurationBlock';
 import { RadioButton } from 'react-native-flexi-radio-button';
+import { Icon } from 'react-native-elements';
 
 // get global stylesheet
 var gs = require ('../src/Resources/g_style');
@@ -20,6 +21,7 @@ var gs = require ('../src/Resources/g_style');
      return (
        <MasterLayout>
          <PageSection>
+           <Icon name='thunder-cloud' type='entypo' color='#ffffff' size={40} />
            <Text style={gs.heading}>Thunder</Text>
            <Text style={gs.bodystandard}>How loud should the thunder be during this snorestorm? Decide below!</Text>
          </PageSection>
@@ -51,7 +53,7 @@ var gs = require ('../src/Resources/g_style');
          </PageSection>
          <PageSection>
            <FooterNav>
-             <FooterNavButton navigateTo={'Sensitivity'} />
+             <FooterNavButton navigateTo={'Sensitivity'} killbutton={this.props.killbutton} />
            </FooterNav>
          </PageSection>
        </MasterLayout>

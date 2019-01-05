@@ -25,14 +25,6 @@ module.exports = StyleSheet.create({
     fontFamily: 'helvetica',
     color: '#FFFFFF',
     fontWeight: 'bold',
-    marginBottom: 20
-  },
-  headingSmall: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    fontFamily: 'helvetica',
-    color: '#FFFFFF',
     marginBottom: 10
-  }
+  },
 });
