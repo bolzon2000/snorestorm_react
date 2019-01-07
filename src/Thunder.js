@@ -27,7 +27,7 @@ var gs = require ('../src/Resources/g_style');
          </PageSection>
          <PageSection>
           <ConfigurationBlock>
-            <RadioButton value={'item1'}>
+            <RadioButton value={0}>
               <View style={{alignItems:'flex-start', marginLeft:10, marginRight:20}}>
                 <Text style={[gs.bodystandard, {textAlign: 'left'}]}>Gentle Storm</Text>
                 <Text style={[gs.bodysmall, {textAlign: 'left'}]}>You are a light sleeper, too much thunder and your sleep might be
@@ -35,14 +35,14 @@ var gs = require ('../src/Resources/g_style');
                 </Text>
               </View>
             </RadioButton>
-            <RadioButton value={'item2'}>
+            <RadioButton value={1}>
               <View style={{alignItems:'flex-start', marginLeft:10, marginRight:20}}>
                 <Text style={[gs.bodystandard, {textAlign: 'left'}]}>Heavy Storm</Text>
                 <Text style={[gs.bodysmall, {textAlign: 'left'}]}>Good setting for people that are light to moderate sleepers.
                 </Text>
               </View>
             </RadioButton>
-            <RadioButton value={'item3'}>
+            <RadioButton value={2}>
               <View style={{alignItems:'flex-start', marginLeft:10, marginRight:20}}>
                 <Text style={[gs.bodystandard, {textAlign: 'left'}]}>Hurricane</Text>
                 <Text style={[gs.bodysmall, {textAlign: 'left'}]}>You sleep like the dead. The right setting for heavy sleepers.

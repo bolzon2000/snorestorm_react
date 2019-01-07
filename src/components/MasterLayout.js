@@ -4,6 +4,7 @@ import { View } from 'react-native';
 const MasterLayout = (props) => {
   return (
     <View style={styles.containerStyle}>
+      <View />
       {props.children}
     </View>
   );

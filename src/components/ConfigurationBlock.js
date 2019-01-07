@@ -5,12 +5,17 @@ import { RadioGroup } from 'react-native-flexi-radio-button';
 
 class ConfigurationBlock extends Component {
 
+  constructor() {
+    super();
+    this.onSelect = this.onSelect.bind(this);
+  };
+
   onSelect(index, value){
     this.setState({
       text: `Selected index: ${index} , value: ${value}`
     })
   }
-  
+
   render() {
     return (
       <RadioGroup

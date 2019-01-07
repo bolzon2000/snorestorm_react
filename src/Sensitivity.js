@@ -27,7 +27,7 @@ var gs = require ('../src/Resources/g_style');
          </PageSection>
          <PageSection>
           <ConfigurationBlock>
-            <RadioButton value={'item1'}>
+            <RadioButton value={0}>
               <View style={{alignItems:'flex-start', marginLeft:10, marginRight:20}}>
                 <Text style={[gs.bodystandard, {textAlign: 'left'}]}>Quiet</Text>
                 <Text style={[gs.bodysmall, {textAlign: 'left'}]}>The slightest snore will set things in motion. Not good for environments with
@@ -35,7 +35,7 @@ var gs = require ('../src/Resources/g_style');
                 </Text>
               </View>
             </RadioButton>
-            <RadioButton value={'item2'}>
+            <RadioButton value={1}>
               <View style={{alignItems:'flex-start', marginLeft:10, marginRight:20}}>
                 <Text style={[gs.bodystandard, {textAlign: 'left'}]}>Buzz Saw</Text>
                 <Text style={[gs.bodysmall, {textAlign: 'left'}]}>A setting for people with a relatively loud snore. A good setting for most people
@@ -43,7 +43,7 @@ var gs = require ('../src/Resources/g_style');
                 </Text>
               </View>
             </RadioButton>
-            <RadioButton value={'item3'}>
+            <RadioButton value={2}>
               <View style={{alignItems:'flex-start', marginLeft:10, marginRight:20}}>
                 <Text style={[gs.bodystandard, {textAlign: 'left'}]}>Jet Aircraft</Text>
                 <Text style={[gs.bodysmall, {textAlign: 'left'}]}>Your snoring is a force of nature. Your snoring makes
