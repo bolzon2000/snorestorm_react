@@ -4,8 +4,6 @@ import { Image , Text } from 'react-native';
 import Header from '../src/components/Header';
 import MasterLayout from '../src/components/MasterLayout';
 import PageSection from '../src/components/PageSection';
-import ConfigurationStep from '../src/components/ConfigurationStep';
-import FooterNav from '../src/components/FooterNav';
 import FooterNavButton from '../src/components/FooterNavButton';
 
 // get global stylesheet
@@ -14,7 +12,6 @@ var gs = require ('../src/Resources/g_style');
 //create a component
 const Introduction = () => (
   <MasterLayout>
-
     <PageSection>
       <Image source={require('../src/Resources/lightningBolt.png')} style={styles.image} />
       <Text style={gs.heading}>Welcome to SnoreStorm</Text>
@@ -26,9 +23,7 @@ const Introduction = () => (
       </Text>
     </PageSection>
     <PageSection>
-      <FooterNav>
-        <FooterNavButton navigateTo={'Lightning'} />
-      </FooterNav>
+      <FooterNavButton navigateTo={'Lightning'} />
     </PageSection>
   </MasterLayout>
 );

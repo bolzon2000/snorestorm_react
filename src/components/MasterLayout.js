@@ -1,20 +1,28 @@
 import React from 'react';
 import { View } from 'react-native';
 
+
 const MasterLayout = (props) => {
-  return (
-    <View style={styles.containerStyle}>
-      <View />
-      {props.children}
-    </View>
-  );
+  if (props.killTopSpacer) {
+    return (
+      <View style={styles.containerStyle}>
+        {props.children}
+      </View>
+    );
+  } else {
+    return (
+      <View style={styles.containerStyle}>
+        <View />
+        {props.children}
+      </View>
+    );
+  }
+
 };
 
 const styles = {
   containerStyle: {
-    marginLeft: 5,
-    marginRight: 5,
-    marginTop: 10,
+    padding: 10,
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',

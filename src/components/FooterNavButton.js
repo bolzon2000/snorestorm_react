@@ -7,7 +7,6 @@ export default class FooterNavButton extends Component<{}> {
   constructor(props) {
     super(props);
     this._onNextButtonPressed  = this._onNextButtonPressed.bind(this);
-    console.log('radio=' + this.props.value);
   }
 
   _onNextButtonPressed = (location) => {

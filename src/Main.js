@@ -19,9 +19,9 @@ import Thunder from './Thunder';
 import Lightning from './Lightning';
 import MasterLayout from './components/MasterLayout';
 import PageSection from './components/PageSection';
-import FooterNav from './components/FooterNav';
 import {NativeModules, NativeEventEmitter, requireNativeComponent} from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import store from 'react-native-simple-store';
 
 // get global stylesheet
 var gs = require ('./Resources/g_style');
@@ -44,8 +44,12 @@ export default class MainPage extends Component <{}> {
       recording: false,
       pause: false,
       snoreCount: "0",
-      sessionComplete: false
+      sessionComplete: false,
     };
+    store.save('firstTimeSetupComplete', {
+      setting: true
+    })
+
 
     //callback from native component - updates the snorecount
     /*
@@ -179,7 +183,7 @@ export default class MainPage extends Component <{}> {
 
   render() {
     return (
-      <MasterLayout>
+      <MasterLayout killTopSpacer={true}>
         <PageSection>
           <TouchableOpacity onPress={() => this._onSettingsButtonPressed()}>
             <Image
@@ -187,7 +191,7 @@ export default class MainPage extends Component <{}> {
               style={styles.image} />
           </TouchableOpacity>
         </PageSection>
-
+        <PageSection />
         <View style={styles.contentContainer}>
           {this.renderStart()}
         </View>
