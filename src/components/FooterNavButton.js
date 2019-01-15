@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity, Text } from 'react-native';
+import { View, TouchableOpacity, Text, Alert } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 export default class FooterNavButton extends Component<{}> {
@@ -10,8 +10,10 @@ export default class FooterNavButton extends Component<{}> {
   }
 
   _onNextButtonPressed = (location) => {
-    console.log ('some location' + location);
-    this._handleResponse(location);
+    if (this.props.selectedIndex)
+      this._handleResponse(location);
+    else
+      Alert.alert('Please make a selection before proceeding to the next page');
   }
 
   _handleResponse = (location) => {
@@ -39,8 +41,8 @@ export default class FooterNavButton extends Component<{}> {
       return null;
     } else {
       return (
-        <TouchableOpacity style={style.button}>
-          <Text style={style.buttonText} onPress={() => this._onNextButtonPressed (this.props.navigateTo)}> Next </Text>
+        <TouchableOpacity style={style.button} onPress={() => this._onNextButtonPressed (this.props.navigateTo)}>
+          <Text style={style.buttonText}> Next </Text>
         </TouchableOpacity>
       );
     }
@@ -64,6 +66,7 @@ const style = {
     backgroundColor: '#3377ff',
     borderRadius: 0,
     padding: 10,
+    margin: 10,
     shadowColor: '#666666',
     shadowOffset: { width: 0, height: 5 },
     shadowRadius: 10,

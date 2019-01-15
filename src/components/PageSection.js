@@ -3,7 +3,7 @@ import { View } from 'react-native';
 
 const PageSection = (props) => {
   return (
-    <View style={style.containerStyle}>
+    <View style={[props.headerSection ? style.containerStyleMargin : style.ContainerStyle]}>
       {props.children}
     </View>
   );
@@ -12,7 +12,10 @@ const PageSection = (props) => {
 const style = {
   containerStyle: {
     alignContent: 'flex-start',
-    margin: 20,
+  },
+  containerStyleMargin: {
+    alignContent: 'flex-start',
+    marginTop: 20,
   }
 };
 

@@ -27,7 +27,9 @@ var gs = require ('../src/Resources/g_style');
      store.get('thunder')
       .then((res) =>
 	     this.setState({selectedIndex: res.setting})
-     )
+     ).catch((err) =>
+       console.log("thunder page error " + err)
+     );
    };
 
    onSelect = (value) => {
@@ -39,12 +41,11 @@ var gs = require ('../src/Resources/g_style');
    render() {
      return (
        <MasterLayout>
-         <PageSection>
+         <PageSection headerSection='YES'>
            <Icon name='thunder-cloud' type='entypo' color='#ffffff' size={40} />
            <Text style={gs.heading}>Thunder</Text>
-           <Text style={gs.bodystandard}>How loud should the thunder be during this snorestorm? Decide below!</Text>
-         </PageSection>
-         <PageSection>
+           <Text style={[gs.bodystandard, {marginBottom:20}]}>How loud should the thunder be during this snorestorm?</Text>
+
          <RadioGroup
            selectedIndex={this.state.selectedIndex}
            size={24}
@@ -77,7 +78,7 @@ var gs = require ('../src/Resources/g_style');
           </RadioGroup>
          </PageSection>
          <PageSection>
-           <FooterNavButton navigateTo={'Sensitivity'} killbutton={this.props.killbutton} />
+           <FooterNavButton navigateTo={'Sensitivity'} killbutton={this.props.killbutton} selectedIndex={this.state.selectedIndex} />
          </PageSection>
        </MasterLayout>
      );

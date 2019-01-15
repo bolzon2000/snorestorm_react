@@ -14,29 +14,29 @@ import {
   Button,
   Image,
 } from 'react-native';
+import GraphComponent from './components/GraphingComponent';
 import Sensitivity from './Sensitivity';
 import Thunder from './Thunder';
 import Lightning from './Lightning';
 import MasterLayout from './components/MasterLayout';
 import PageSection from './components/PageSection';
 import {NativeModules, NativeEventEmitter, requireNativeComponent} from 'react-native';
-import { Actions } from 'react-native-router-flux';
 import store from 'react-native-simple-store';
 
 // get global stylesheet
 var gs = require ('./Resources/g_style');
 
 //global var
-//var StormEngine = NativeModules.StormEngine;
-//var GraphManager = NativeModules.GraphManager;
+var StormEngine = NativeModules.StormEngine;
+var GraphManager = NativeModules.GraphManager;
 
 const testArray = [5,5,5,0,23,1,36,52,44,23,65,23,43,21,11,43,55];
 
 
-//const myModuleEvt = new NativeEventEmitter(NativeModules.StormEngine);
-const snoreSubscription = null;
+const myModuleEvt = new NativeEventEmitter(NativeModules.StormEngine);
+var snoreSubscription = null;
 
-export default class MainPage extends Component <{}> {
+class Main extends Component {
 
   constructor(props) {
     super(props);
@@ -52,15 +52,11 @@ export default class MainPage extends Component <{}> {
 
 
     //callback from native component - updates the snorecount
-    /*
+
     snoreSubscription = myModuleEvt.addListener(
       'snoreDataCallback', (data) =>
         this.setState({ snoreCount: data })
-      //(data) => self.setState({ snoreCount: data })
     );
-    */
-
-
   };
 
 ///////////////////////////
@@ -144,10 +140,10 @@ export default class MainPage extends Component <{}> {
 
     if (this.state.recording) {
       this.setState({ recording: false, sessionComplete: true });
-      //StormEngine.stopTimer();
+      StormEngine.stopTimer();
     } else {
       this.setState({ recording: true, snoreCount: "0", sessionComplete: false});
-      //StormEngine.startTimer();
+      StormEngine.startTimer();
     }
     //save to AWS
     //route
@@ -157,24 +153,19 @@ export default class MainPage extends Component <{}> {
   _onResetButtonPressed = () => {
     this.setState({ recording: false, snoreCount: "0", pause: false});
     //native method
-    //StormEngine.reset();
+    StormEngine.reset();
   }
 
   _onPauseButtonPressed = () => {
     if (this.state.pause) {
       this.setState({ pause: false });
       //native method
-      //StormEngine.resumeTimer();
+      StormEngine.resumeTimer();
     } else {
       this.setState({ pause: true });
       //native method
-      //StormEngine.pauseTimer();
+      StormEngine.pauseTimer();
     }
-  }
-
-  _onSettingsButtonPressed = () => {
-    console.log('in here maybe');
-    Actions.settings();
   }
 
   _handleResponse = () => {
@@ -183,19 +174,15 @@ export default class MainPage extends Component <{}> {
 
   render() {
     return (
-      <MasterLayout killTopSpacer={true}>
+      <MasterLayout>
         <PageSection>
-          <TouchableOpacity onPress={() => this._onSettingsButtonPressed()}>
-            <Image
-              source={require('./Resources/gearIcon.png')}
-              style={styles.image} />
-          </TouchableOpacity>
-        </PageSection>
-        <PageSection />
         <View style={styles.contentContainer}>
           {this.renderStart()}
         </View>
+        <View>
           {this.messageArea()}
+        </View>
+        </PageSection>
         <PageSection>
           <View style={styles.footerStyle}>
           {this.renderPause()}
@@ -246,9 +233,10 @@ const styles = StyleSheet.create({
   messageContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    flexBasis: 100,
+    flexBasis: 80,
     marginLeft: 20,
-    marginRight:20
+    marginRight:20,
+    marginTop:10
   },
   image: {
     alignSelf: 'flex-end',
@@ -256,8 +244,9 @@ const styles = StyleSheet.create({
     width: 30,
   },
   footerStyle: {
-    height: 160,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   }
 });
+
+export default Main;

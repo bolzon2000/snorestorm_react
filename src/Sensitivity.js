@@ -27,7 +27,9 @@ var gs = require ('../src/Resources/g_style');
      store.get('sensitivity')
       .then((res) =>
 	     this.setState({selectedIndex: res.setting})
-     )
+     ).catch((err) =>
+      console.log("sensitivity page error " + err)
+     );
    };
 
    onSelect = (value) => {
@@ -39,12 +41,11 @@ var gs = require ('../src/Resources/g_style');
    render() {
      return (
        <MasterLayout>
-         <PageSection>
+         <PageSection headerSection='YES'>
            <Icon name='gauge' type='entypo' color='#ffffff' size={40} />
            <Text style={gs.heading}>Sensitivity</Text>
-           <Text style={gs.bodystandard}>How loud should your snoring be before lightning flashes and thunder crashes? This setting triggers the storm based on the volume of your snoring.</Text>
-         </PageSection>
-         <PageSection>
+           <Text style={[gs.bodystandard, {marginBottom:20}]}>How loud should your snoring be before lightning flashes and thunder crashes?</Text>
+
            <RadioGroup
              selectedIndex={this.state.selectedIndex}
              size={24}
@@ -79,7 +80,7 @@ var gs = require ('../src/Resources/g_style');
             </RadioGroup>
          </PageSection>
          <PageSection>
-           <FooterNavButton navigateTo={'Main'} killbutton={this.props.killbutton} />
+           <FooterNavButton navigateTo={'Main'} killbutton={this.props.killbutton} selectedIndex={this.state.selectedIndex} />
          </PageSection>
        </MasterLayout>
      );

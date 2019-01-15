@@ -23,7 +23,7 @@ const Introduction = () => (
       </Text>
     </PageSection>
     <PageSection>
-      <FooterNavButton navigateTo={'Lightning'} />
+      <FooterNavButton navigateTo={'Lightning'} selectedIndex = {-1}/>
     </PageSection>
   </MasterLayout>
 );

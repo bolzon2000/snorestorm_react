@@ -28,7 +28,9 @@ var gs = require ('../src/Resources/g_style');
      store.get('lightning')
       .then((res) =>
 	     this.setState({selectedIndex: res.setting})
-     )
+     ).catch((err) =>
+      console.log("lightning page error " + err)
+     );
    };
 
    onSelect = (value) => {
@@ -40,12 +42,11 @@ var gs = require ('../src/Resources/g_style');
    render() {
      return (
        <MasterLayout>
-         <PageSection>
+         <PageSection headerSection='YES'>
            <Icon name='flash' type='entypo' color='#ffffff' size={40} />
            <Text style={gs.heading}>Lightning</Text>
-           <Text style={gs.bodystandard}>Its just the flash, but hey, it works! If you see flashing all night...the setting is probably too high. </Text>
-         </PageSection>
-         <PageSection>
+           <Text style={[gs.bodystandard, {marginBottom:20}]}>Its just the flash, but hey, it works!</Text>
+
            <RadioGroup
              selectedIndex={this.state.selectedIndex}
              size={24}
@@ -80,7 +81,7 @@ var gs = require ('../src/Resources/g_style');
             </RadioGroup>
          </PageSection>
          <PageSection>
-           <FooterNavButton navigateTo={'Thunder'} killbutton={this.props.killbutton}/>
+           <FooterNavButton navigateTo={'Thunder'} killbutton={this.props.killbutton} selectedIndex={this.state.selectedIndex} />
          </PageSection>
        </MasterLayout>
      );
