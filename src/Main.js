@@ -45,14 +45,37 @@ class Main extends Component {
       pause: false,
       snoreCount: "0",
       sessionComplete: false,
+      lightningSetting: 0,
+      sensitivitySetting: 0,
+      thunderSetting: 0
     };
+
     store.save('firstTimeSetupComplete', {
       setting: true
     })
 
+    store.get('lightning')
+     .then((res) =>
+      this.setState({lightningSetting: res.setting})
+    ).catch((err) =>
+     console.log("lightning retrieval error " + err)
+    );
+
+    store.get('sensitivity')
+     .then((res) =>
+      this.setState({sensitivitySetting: res.setting})
+    ).catch((err) =>
+     console.log("sensitivity retrieval error " + err)
+    );
+
+    store.get('thunder')
+     .then((res) =>
+      this.setState({thunderSetting: res.setting})
+    ).catch((err) =>
+      console.log("thunder retrieval error " + err)
+    );
 
     //callback from native component - updates the snorecount
-
     snoreSubscription = myModuleEvt.addListener(
       'snoreDataCallback', (data) =>
         this.setState({ snoreCount: data })
@@ -143,7 +166,11 @@ class Main extends Component {
       StormEngine.stopTimer();
     } else {
       this.setState({ recording: true, snoreCount: "0", sessionComplete: false});
-      StormEngine.startTimer();
+      StormEngine.startTimer(
+        this.state.lightningSetting,
+        this.state.thunderSetting,
+        this.state.sensitivitySetting
+      );
     }
     //save to AWS
     //route

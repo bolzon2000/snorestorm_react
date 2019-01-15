@@ -19,8 +19,10 @@ RCT_EXPORT_MODULE();
   return @[@"snoreDataCallback"];
 }
 
+
+
 // export the start method to javascript
-RCT_EXPORT_METHOD(startTimer)
+RCT_EXPORT_METHOD(startTimer:(int)lightningVal thunderVal:(int)thunderVal sensitivityVal:(int)sensitivityVal)
 {
   //these items stay, even on reset/stop/start
   //below is the delegate for thunder completion
@@ -28,6 +30,9 @@ RCT_EXPORT_METHOD(startTimer)
   thunderPlayer.delegate = self;
   lightningFlasher = [[LightningFlasher alloc] init];
   lightningFlasher.delegate = self;
+  [self setThunder:thunderVal];
+  [self setLightning:lightningVal];
+  [self setSensitivity:sensitivityVal];
   [self initializeEngine];
 }
 
@@ -38,7 +43,6 @@ RCT_EXPORT_METHOD(pauseTimer) {
 RCT_EXPORT_METHOD(resumeTimer) {
   timerPaused = NO;
 }
-
 
 RCT_EXPORT_METHOD(reset) {
   
@@ -77,7 +81,6 @@ RCT_EXPORT_METHOD(stopTimer) {
 
 - (void) initializeEngine {
   
-  NSLog(@"okay...am I in initialize engine?????");
   //reset everything in case we've hit the reset button
   startTime = [NSDate date];
   timerPaused = NO;
@@ -201,8 +204,64 @@ RCT_EXPORT_METHOD(stopTimer) {
 
 -(void)flashesComplete
 {
-  NSLog(@"flashing here ");
   flashing = NO;
+}
+
+-(void)setLightning:(int)lightningVal
+{
+  //sets number of flashes
+  switch (lightningVal) {
+    case 0:
+      lightningSetting = 1;
+      break;
+    case 1:
+      lightningSetting = 2;
+      break;
+    case 2:
+      lightningSetting = 5;
+      break;
+    default:
+      lightningSetting = 2;
+      break;
+  }
+}
+
+-(void)setThunder:(int)thunderVal
+//note that 1.0 represents full volume
+{
+  switch (thunderVal) {
+    case 0:
+      thunderSetting = .5;
+      break;
+    case 1:
+      thunderSetting = .75;
+      break;
+    case 2:
+      thunderSetting = 1;
+      break;
+    default:
+      thunderSetting = .75;
+      break;
+  }
+}
+
+-(void)setSensitivity:(int)sensitivityVal
+{
+  //sets in decibels
+  switch (sensitivityVal) {
+    case 0:
+      sensitivitySetting = 70;
+      break;
+    case 1:
+      sensitivitySetting = 80;
+      break;
+    case 2:
+      sensitivitySetting = 90;
+      break;
+    default:
+      sensitivitySetting = 70;
+      break;
+  }
 }
 
 @end

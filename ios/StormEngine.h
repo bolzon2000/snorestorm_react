@@ -33,6 +33,9 @@
   LightningFlasher *lightningFlasher;
   bool thunderPlaying;
   bool flashing;
+  int lightningSetting;
+  int thunderSetting;
+  int sensitivitySetting;
 
 }
 
